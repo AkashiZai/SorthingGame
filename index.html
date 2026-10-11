@@ -161,55 +161,6 @@
       gap: 1.25rem;
     }
 
-    /* Mode Navigation Tabs */
-    .mode-nav {
-      display: flex;
-      gap: 4px;
-      background: var(--bg-subtle);
-      padding: 4px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      overflow-x: auto;
-    }
-
-    .mode-btn {
-      flex: 1;
-      min-width: 160px;
-      padding: 8px 14px;
-      background: transparent;
-      border: none;
-      border-radius: var(--radius-sm);
-      color: var(--text-muted);
-      font-family: var(--font-ui);
-      font-size: 0.88rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      text-align: center;
-    }
-
-    .mode-btn:hover {
-      color: var(--text);
-    }
-
-    .mode-btn.active {
-      color: #fff;
-      background: var(--card);
-      border: 1px solid var(--border);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    }
-
-    /* Tab Contents */
-    .tab-content {
-      display: none;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .tab-content.active {
-      display: flex;
-    }
-
     /* Sub-nav Pill Bar */
     .algo-selector-bar {
       display: flex;
@@ -614,113 +565,6 @@
       padding-bottom: 6px;
     }
 
-    /* Duel Mode Styles */
-    .duel-arena {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-    }
-
-    .lane-box {
-      background: var(--bg-subtle);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .lane-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .lane-title {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    .progress-bar-container {
-      width: 100%;
-      height: 6px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      overflow: hidden;
-    }
-
-    .progress-bar-fill {
-      height: 100%;
-      width: 0%;
-      background: var(--blue);
-      transition: width 0.25s ease;
-    }
-
-    .progress-bar-fill.ai-fill {
-      background: var(--amber);
-    }
-
-    /* Strategy Grid */
-    .strategy-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 12px;
-    }
-
-    .strategy-card {
-      background: var(--bg-subtle);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1rem;
-      cursor: pointer;
-      transition: border-color 0.15s, background-color 0.15s;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .strategy-card:hover {
-      border-color: var(--border-strong);
-      background: var(--card-hover);
-    }
-
-    .strategy-card.selected {
-      border-color: var(--blue);
-      background: var(--blue-subtle);
-    }
-
-    .algo-badge {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: var(--radius-sm);
-      font-size: 0.72rem;
-      font-weight: 500;
-      margin-bottom: 6px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-    }
-
-    .complexity-tags {
-      display: flex;
-      gap: 4px;
-      margin-top: 8px;
-      flex-wrap: wrap;
-    }
-
-    .complexity-tag {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      padding: 2px 6px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      color: var(--text-dim);
-    }
-
     /* Modals */
     .modal-overlay {
       position: fixed;
@@ -862,280 +706,68 @@
 
   <!-- Main Container -->
   <main>
-    <!-- Navigation Tabs -->
-    <nav class="mode-nav">
-      <button class="mode-btn active" data-tab="trials">1. บททดสอบ (Algorithm Puzzle)</button>
-      <button class="mode-btn" data-tab="duel">2. แข่งกับ AI (Race Duel)</button>
-      <button class="mode-btn" data-tab="strategist">3. วิเคราะห์ความซับซ้อน (Complexity Quiz)</button>
-      <button class="mode-btn" data-tab="sandbox">4. ห้องทดลอง (Sandbox Lab)</button>
-    </nav>
-
-    <!-- TAB 1: ACADEMY TRIALS (Puzzle by Algorithm Rules) -->
-    <section class="tab-content active" id="tab-trials">
-      <div class="algo-selector-bar">
-        <div class="algo-pills">
-          <button class="algo-pill active" data-algo="bubble">Bubble Sort</button>
-          <button class="algo-pill" data-algo="selection">Selection Sort</button>
-          <button class="algo-pill" data-algo="insertion">Insertion Sort</button>
-          <button class="algo-pill" data-algo="quick">Quick Sort (Partition)</button>
-        </div>
-        <div class="difficulty-select">
-          <label for="trials-size">จำนวนข้อมูล:</label>
-          <select id="trials-size">
-            <option value="5">5 ตัว (เริ่มต้น)</option>
-            <option value="6" selected>6 ตัว (มาตรฐาน)</option>
-            <option value="8">8 ตัว (ท้าทาย)</option>
-          </select>
-        </div>
+    <div class="algo-selector-bar">
+      <div class="algo-pills">
+        <button class="algo-pill active" data-algo="bubble">Bubble Sort</button>
+        <button class="algo-pill" data-algo="selection">Selection Sort</button>
+        <button class="algo-pill" data-algo="insertion">Insertion Sort</button>
+        <button class="algo-pill" data-algo="quick">Quick Sort (Partition)</button>
       </div>
-
-      <div class="arena-card">
-        <div class="arena-header">
-          <div class="mission-info">
-            <h2 id="trial-title">บททดสอบ: Bubble Sort</h2>
-            <p id="trial-desc">เปรียบเทียบคู่ติดกัน แล้วสลับเมื่อตัวซ้ายมากกว่าตัวขวา</p>
-          </div>
-          <div class="stats-hud">
-            <div class="stat-box">
-              <span class="stat-label">เปรียบเทียบ</span>
-              <span class="stat-val" id="trial-comparisons">0</span>
-            </div>
-            <div class="stat-box">
-              <span class="stat-label">สลับ (Swaps)</span>
-              <span class="stat-val" id="trial-swaps">0</span>
-            </div>
-            <div class="stat-box">
-              <span class="stat-label">ความแม่นยำ</span>
-              <span class="stat-val" id="trial-accuracy">100%</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Instructional Guidance -->
-        <div class="instruction-banner">
-          <div class="instruction-text" id="trial-instruction">
-            กำลังเปรียบเทียบคู่ที่ <span class="instruction-highlight" id="compare-pair">[0] และ [1]</span>: ถ้าซ้ายมากกว่าขวา ให้กด <b>"สลับ (Swap)"</b> มิฉะนั้นกด <b>"ข้าม (Keep)"</b>
-          </div>
-          <button class="btn-action btn-secondary" id="trial-hint-btn" style="padding: 4px 10px; font-size: 0.8rem;">คำใบ้</button>
-        </div>
-
-        <!-- Visual Stage Container -->
-        <div class="potion-stage" id="trials-stage"></div>
-
-        <!-- Action Controls -->
-        <div class="controls-deck" id="trials-controls"></div>
-
-        <!-- Code Inspector -->
-        <div class="code-inspector">
-          <div class="code-header">
-            <span>Algorithm Execution Tracer</span>
-            <span id="algo-time-complexity" style="font-family: var(--font-mono); color: var(--blue);">Time: O(n²) | Space: O(1)</span>
-          </div>
-          <div id="code-trace-view"></div>
-        </div>
+      <div class="difficulty-select">
+        <label for="trials-size">จำนวนข้อมูล:</label>
+        <select id="trials-size">
+          <option value="5">5 ตัว (เริ่มต้น)</option>
+          <option value="6" selected>6 ตัว (มาตรฐาน)</option>
+          <option value="8">8 ตัว (ท้าทาย)</option>
+        </select>
       </div>
-    </section>
+    </div>
 
-    <!-- TAB 2: RACE DUEL (Man vs Machine) -->
-    <section class="tab-content" id="tab-duel">
-      <div class="algo-selector-bar">
-        <div style="font-size: 0.88rem; color: var(--text);">
-          เลือกคู่ต่อสู้ AI และความเร็ว:
+    <div class="arena-card">
+      <div class="arena-header">
+        <div class="mission-info">
+          <h2 id="trial-title">บททดสอบ: Bubble Sort</h2>
+          <p id="trial-desc">เปรียบเทียบคู่ติดกัน แล้วสลับเมื่อตัวซ้ายมากกว่าตัวขวา</p>
         </div>
-        <div class="difficulty-select">
-          <label for="duel-ai-algo">AI Algorithm:</label>
-          <select id="duel-ai-algo">
-            <option value="bubble">Bubble Sort</option>
-            <option value="selection" selected>Selection Sort</option>
-            <option value="insertion">Insertion Sort</option>
-            <option value="quick">Quick Sort</option>
-          </select>
-          <label for="duel-ai-speed" style="margin-left: 8px;">ความเร็ว:</label>
-          <select id="duel-ai-speed">
-            <option value="1200">ช้า</option>
-            <option value="800" selected>ปานกลาง</option>
-            <option value="400">เร็ว</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="arena-card">
-        <div class="arena-header">
-          <div class="mission-info">
-            <h2>ประลองความเร็ว: ผู้เล่น VS อัลกอริทึม AI</h2>
-            <p>คลิกเลือก 2 แท่งในเลนของคุณเพื่อสลับตำแหน่ง (Swap) เรียงจากน้อยไปหามากให้เสร็จก่อน AI</p>
+        <div class="stats-hud">
+          <div class="stat-box">
+            <span class="stat-label">เปรียบเทียบ</span>
+            <span class="stat-val" id="trial-comparisons">0</span>
           </div>
-          <div class="stats-hud">
-            <div class="stat-box">
-              <span class="stat-label">เวลาที่ใช้</span>
-              <span class="stat-val" id="duel-timer">00:00</span>
-            </div>
-            <div class="stat-box">
-              <span class="stat-label">สถานะ</span>
-              <span class="stat-val" id="duel-status" style="color: var(--blue);">พร้อมเริ่ม</span>
-            </div>
+          <div class="stat-box">
+            <span class="stat-label">สลับ (Swaps)</span>
+            <span class="stat-val" id="trial-swaps">0</span>
           </div>
-        </div>
-
-        <div class="duel-arena">
-          <!-- Player Lane -->
-          <div class="lane-box">
-            <div class="lane-header">
-              <span class="lane-title" style="color: var(--blue);">เลนของคุณ (Player): คลิก 2 แท่งเพื่อสลับ</span>
-              <span style="font-size: 0.8rem; font-family: var(--font-mono);" id="player-sorted-percent">0%</span>
-            </div>
-            <div class="progress-bar-container">
-              <div class="progress-bar-fill" id="player-progress-bar"></div>
-            </div>
-            <div class="potion-stage" id="duel-player-stage" style="min-height: 180px; padding-top: 40px;"></div>
-          </div>
-
-          <!-- AI Lane -->
-          <div class="lane-box">
-            <div class="lane-header">
-              <span class="lane-title" style="color: var(--amber);">เลน AI (<span id="duel-ai-name">Selection Sort</span>)</span>
-              <span style="font-size: 0.8rem; font-family: var(--font-mono);" id="ai-sorted-percent">0%</span>
-            </div>
-            <div class="progress-bar-container">
-              <div class="progress-bar-fill ai-fill" id="ai-progress-bar"></div>
-            </div>
-            <div class="potion-stage" id="duel-ai-stage" style="min-height: 180px; padding-top: 40px;"></div>
-          </div>
-        </div>
-
-        <div class="controls-deck">
-          <button class="btn-action btn-primary" id="btn-start-duel">เริ่มการแข่งขัน</button>
-          <button class="btn-action btn-secondary" id="btn-reset-duel">สุ่มชุดข้อมูลใหม่</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 3: THE STRATEGIST (Pick the Best Sort for Scenarios) -->
-    <section class="tab-content" id="tab-strategist">
-      <div class="arena-card">
-        <div class="arena-header">
-          <div class="mission-info">
-            <h2>วิเคราะห์ความซับซ้อน: เลือกอัลกอริทึมให้เหมาะกับโจทย์</h2>
-            <p>วิเคราะห์ลักษณะชุดข้อมูล แล้วเลือกอัลกอริทึมที่ทำต้นทุน (Operations) ได้น้อยที่สุดตามทฤษฎี Big-O</p>
-          </div>
-          <div class="stats-hud">
-            <div class="stat-box">
-              <span class="stat-label">คะแนน</span>
-              <span class="stat-val" id="strat-score">0</span>
-            </div>
-            <div class="stat-box">
-              <span class="stat-label">ด่านที่</span>
-              <span class="stat-val" id="strat-stage-num">1 / 4</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Scenario briefing -->
-        <div style="background: var(--bg-subtle); padding: 1rem 1.25rem; border-radius: var(--radius-sm); border-left: 3px solid var(--amber);">
-          <div style="font-size: 0.72rem; color: var(--amber); font-weight: 600; text-transform: uppercase;">สถานการณ์:</div>
-          <h3 id="scenario-title" style="color: var(--text); font-size: 0.95rem; margin: 4px 0;">สถานการณ์ที่ 1: ชุดข้อมูลเกือบเรียงสมบูรณ์ (Nearly Sorted)</h3>
-          <p id="scenario-desc" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 2px;">
-            มีข้อมูล 8 ตัว โดย 6 ตัวเรียงถูกต้องอยู่แล้ว มีเพียง 2 ตัวที่ผิดตำแหน่ง คุณควรใช้อัลกอริทึมใดเพื่อให้เสร็จเร็วที่สุดใน O(n)?
-          </p>
-        </div>
-
-        <!-- Visual preview -->
-        <div class="potion-stage" id="scenario-data-preview" style="min-height: 180px; padding-top: 40px;"></div>
-
-        <div style="font-size: 0.88rem; color: var(--text); font-weight: 500;">เลือกอัลกอริทึมที่เหมาะสมที่สุด:</div>
-        <div class="strategy-grid" id="strategy-cards-container"></div>
-
-        <div class="controls-deck">
-          <button class="btn-action btn-primary" id="btn-execute-strategy" disabled>ยืนยันคำตอบ</button>
-          <button class="btn-action btn-secondary" id="btn-next-scenario" style="display: none;">ข้อถัดไป</button>
-        </div>
-
-        <div id="strategy-result-box" style="display: none; padding: 0.85rem 1rem; border-radius: var(--radius-sm); font-size: 0.85rem; line-height: 1.5;"></div>
-      </div>
-    </section>
-
-    <!-- TAB 4: SANDBOX LAB (Freeform Visualizer & Simulator) -->
-    <section class="tab-content" id="tab-sandbox">
-      <div class="algo-selector-bar">
-        <div class="difficulty-select" style="flex-wrap: wrap; gap: 10px;">
-          <div>
-            <label for="sb-algo">อัลกอริทึม:</label>
-            <select id="sb-algo">
-              <option value="bubble">Bubble Sort</option>
-              <option value="selection">Selection Sort</option>
-              <option value="insertion">Insertion Sort</option>
-              <option value="quick">Quick Sort</option>
-            </select>
-          </div>
-          <div>
-            <label for="sb-size">จำนวนข้อมูล:</label>
-            <select id="sb-size">
-              <option value="6">6 ค่า</option>
-              <option value="10" selected>10 ค่า</option>
-              <option value="15">15 ค่า</option>
-            </select>
-          </div>
-          <div>
-            <label for="sb-type">รูปแบบ:</label>
-            <select id="sb-type">
-              <option value="random" selected>สุ่มทั่วไป (Random)</option>
-              <option value="nearly">เกือบเรียงแล้ว (Nearly Sorted)</option>
-              <option value="reversed">เรียงย้อนกลับ (Reversed)</option>
-            </select>
-          </div>
-          <div>
-            <label for="sb-speed">ความเร็ว:</label>
-            <select id="sb-speed">
-              <option value="600">ปกติ</option>
-              <option value="300" selected>เร็ว</option>
-              <option value="100">เร็วมาก</option>
-            </select>
+          <div class="stat-box">
+            <span class="stat-label">ความแม่นยำ</span>
+            <span class="stat-val" id="trial-accuracy">100%</span>
           </div>
         </div>
       </div>
 
-      <div class="arena-card">
-        <div class="arena-header">
-          <div class="mission-info">
-            <h2>ห้องทดลองอัลกอริทึม (Interactive Sandbox)</h2>
-            <p>ควบคุมการจำลองทีละขั้นตอน (Step-by-step) หรือเล่นอัตโนมัติเพื่อศึกษาพฤติกรรม</p>
-          </div>
-          <div class="stats-hud">
-            <div class="stat-box">
-              <span class="stat-label">เปรียบเทียบ</span>
-              <span class="stat-val" id="sb-comp-count">0</span>
-            </div>
-            <div class="stat-box">
-              <span class="stat-label">สลับ (Swaps)</span>
-              <span class="stat-val" id="sb-swap-count">0</span>
-            </div>
-            <div class="stat-box">
-              <span class="stat-label">สถานะ</span>
-              <span class="stat-val" id="sb-status-text" style="color: var(--blue);">พร้อม</span>
-            </div>
-          </div>
+      <!-- Instructional Guidance -->
+      <div class="instruction-banner">
+        <div class="instruction-text" id="trial-instruction">
+          กำลังเปรียบเทียบคู่ที่ <span class="instruction-highlight" id="compare-pair">[0] และ [1]</span>: ถ้าซ้ายมากกว่าขวา ให้กด <b>"สลับ (Swap)"</b> มิฉะนั้นกด <b>"ข้าม (Keep)"</b>
         </div>
-
-        <div class="potion-stage" id="sandbox-stage"></div>
-
-        <div class="controls-deck">
-          <button class="btn-action btn-primary" id="btn-sb-play">เล่นอัตโนมัติ (Play)</button>
-          <button class="btn-action btn-secondary" id="btn-sb-step">ก้าวถัดไป (Step)</button>
-          <button class="btn-action btn-secondary" id="btn-sb-shuffle">สุ่มข้อมูลใหม่</button>
-          <button class="btn-action btn-secondary" id="btn-sb-reset">รีเซ็ต</button>
-        </div>
-
-        <div class="code-inspector">
-          <div class="code-header">
-            <span id="sb-code-title">Step Explanation</span>
-            <span id="sb-complexity-tag" style="color: var(--blue);">Complexity</span>
-          </div>
-          <div id="sb-code-explanation" style="color: var(--text);">
-            กดปุ่ม "ก้าวถัดไป (Step)" หรือ "เล่นอัตโนมัติ" เพื่อเริ่มจำลอง
-          </div>
-        </div>
+        <button class="btn-action btn-secondary" id="trial-hint-btn" style="padding: 4px 10px; font-size: 0.8rem;">คำใบ้</button>
       </div>
-    </section>
+
+      <!-- Visual Stage Container -->
+      <div class="potion-stage" id="trials-stage"></div>
+
+      <!-- Action Controls -->
+      <div class="controls-deck" id="trials-controls"></div>
+
+      <!-- Code Inspector -->
+      <div class="code-inspector">
+        <div class="code-header">
+          <span>Algorithm Execution Tracer</span>
+          <span id="algo-time-complexity" style="font-family: var(--font-mono); color: var(--blue);">Time: O(n²) | Space: O(1)</span>
+        </div>
+        <div id="code-trace-view"></div>
+      </div>
+    </div>
   </main>
 
   <!-- MODAL: Theory & Big-O Cheat Sheet -->
@@ -1215,19 +847,13 @@
         <button class="modal-close" data-close="modal-help">&times;</button>
       </div>
       <div class="modal-content">
-        <h3>1. โหมดบททดสอบ (Algorithm Puzzle)</h3>
-        <ul style="padding-left: 20px; margin: 8px 0;">
-          <li><b>Bubble Sort:</b> ดูคู่ที่ไฮไลท์ ถ้าซ้าย > ขวา ให้กด "สลับ", ถ้าไม่ใช่ให้กด "ข้าม"</li>
-          <li><b>Selection Sort:</b> สแกนหาตัวที่ค่าน้อยที่สุดในโซนที่ยังไม่เรียง คลิกเลือกตัวนั้น แล้วกดยืนยัน</li>
-          <li><b>Insertion Sort:</b> นำแท่ง Key เลื่อนแทรกลงในตำแหน่งที่ถูกต้องในโซนที่จัดเรียงแล้ว</li>
+        <p>คุณจะสวมบทบาทปฏิบัติตามกฎของแต่ละอัลกอริทึม เพื่อจัดเรียงข้อมูลจากน้อยไปหามาก:</p>
+        <ul style="padding-left: 20px; margin: 10px 0; line-height: 1.8;">
+          <li><b>Bubble Sort:</b> เปรียบเทียบคู่ที่ไฮไลท์ ถ้าซ้าย > ขวา ให้กด "สลับ (Swap)" ถ้าถูกต้องอยู่แล้วให้กด "ข้าม (Keep)"</li>
+          <li><b>Selection Sort:</b> สแกนหาตัวที่ค่าน้อยที่สุดในโซนที่ยังไม่เรียง คลิกเลือกตัวนั้น แล้วกดยืนยันเพื่อวางที่หัวแถว</li>
+          <li><b>Insertion Sort:</b> นำแท่ง Key เลื่อนแทรกลงในตำแหน่งที่ถูกต้องในโซนที่จัดเรียงแล้วทางซ้าย</li>
           <li><b>Quick Sort:</b> สังเกตค่า Pivot แล้วแยกว่าแท่งที่เลือกควรไปอยู่ฝั่งซ้าย (< Pivot) หรือขวา (≥ Pivot)</li>
         </ul>
-
-        <h3>2. โหมดแข่งกับ AI (Race Duel)</h3>
-        <p>คลิกเลือก 2 แท่งใดๆ ในเลนของคุณเพื่อสลับตำแหน่ง (Swap) จัดเรียงจากน้อยไปหามากให้เสร็จก่อน AI</p>
-
-        <h3>3. โหมดวิเคราะห์ (Complexity Quiz)</h3>
-        <p>อ่านลักษณะข้อมูลที่กำหนด แล้วเลือกอัลกอริทึมที่ทำต้นทุนได้ประหยัดที่สุดตามทฤษฎี Big-O</p>
       </div>
     </div>
   </div>
@@ -2155,528 +1781,11 @@ function partition(arr, low, high) {
     }
 
     /* ==========================================================================
-       SECTION 4: TAB 2 - RACE DUEL CONTROLLER (Man vs Machine)
-       ========================================================================== */
-    class DuelGame {
-      constructor() {
-        this.playerArray = [];
-        this.aiArray = [];
-        this.selectedIndices = [];
-        this.aiTimer = null;
-        this.elapsedSeconds = 0;
-        this.timerInterval = null;
-        this.isPlaying = false;
-
-        this.bindEvents();
-      }
-
-      bindEvents() {
-        document.getElementById('btn-start-duel').onclick = () => this.startDuel();
-        document.getElementById('btn-reset-duel').onclick = () => this.resetDuel();
-      }
-
-      resetDuel() {
-        clearInterval(this.timerInterval);
-        clearTimeout(this.aiTimer);
-        this.isPlaying = false;
-        this.selectedIndices = [];
-        this.elapsedSeconds = 0;
-
-        document.getElementById('duel-timer').textContent = '00:00';
-        document.getElementById('duel-status').textContent = 'พร้อมเริ่ม';
-        document.getElementById('btn-start-duel').disabled = false;
-
-        const base = generateRandomArray(7);
-        this.playerArray = [...base];
-        this.aiArray = [...base];
-
-        this.renderLane('player');
-        this.renderLane('ai');
-        this.updateProgress();
-      }
-
-      startDuel() {
-        if (this.isPlaying) return;
-        this.resetDuel();
-        this.isPlaying = true;
-        document.getElementById('btn-start-duel').disabled = true;
-        document.getElementById('duel-status').textContent = 'กำลังแข่งขัน';
-
-        this.timerInterval = setInterval(() => {
-          this.elapsedSeconds++;
-          const m = String(Math.floor(this.elapsedSeconds / 60)).padStart(2, '0');
-          const s = String(this.elapsedSeconds % 60).padStart(2, '0');
-          document.getElementById('duel-timer').textContent = `${m}:${s}`;
-        }, 1000);
-
-        const algoType = document.getElementById('duel-ai-algo').value;
-        const speed = parseInt(document.getElementById('duel-ai-speed').value, 10);
-
-        let aiGen;
-        if (algoType === 'bubble') aiGen = bubbleSortGenerator(this.aiArray);
-        else if (algoType === 'selection') aiGen = selectionSortGenerator(this.aiArray);
-        else if (algoType === 'insertion') aiGen = insertionSortGenerator(this.aiArray);
-        else aiGen = quickSortGenerator(this.aiArray);
-
-        const runAIStep = () => {
-          if (!this.isPlaying) return;
-          const step = aiGen.next();
-
-          if (!step.done) {
-            if (step.value.values) {
-              this.aiArray = step.value.values;
-            }
-            this.renderLane('ai', step.value);
-            this.updateProgress();
-
-            this.aiTimer = setTimeout(runAIStep, speed);
-          } else {
-            this.handleEndGame('ai');
-          }
-        };
-
-        this.aiTimer = setTimeout(runAIStep, speed);
-      }
-
-      renderLane(who, stepInfo = null) {
-        const stageEl = document.getElementById(who === 'player' ? 'duel-player-stage' : 'duel-ai-stage');
-        const arr = who === 'player' ? this.playerArray : this.aiArray;
-        stageEl.innerHTML = '';
-        const maxVal = Math.max(...arr, 100);
-
-        arr.forEach((val, idx) => {
-          const card = document.createElement('div');
-          card.className = 'potion-bottle';
-          card.style.width = '48px';
-          card.style.height = '140px';
-
-          const heightPercent = Math.max(20, (val / maxVal) * 100);
-
-          card.innerHTML = `
-            <div class="potion-value" style="font-size: 0.82rem; top: -20px;">${val}</div>
-            <div class="flask-body" style="height: 95px;">
-              <div class="flask-liquid" style="height: ${heightPercent}%;"></div>
-            </div>
-            <div class="potion-index">[${idx}]</div>
-          `;
-
-          if (who === 'player' && this.selectedIndices.includes(idx)) {
-            card.classList.add('comparing');
-          }
-
-          if (who === 'ai' && stepInfo && stepInfo.indices && stepInfo.indices.includes(idx)) {
-            card.classList.add('comparing');
-          }
-
-          if (who === 'player') {
-            card.onclick = () => this.handlePlayerClick(idx);
-          }
-
-          stageEl.appendChild(card);
-        });
-      }
-
-      handlePlayerClick(idx) {
-        if (!this.isPlaying) return;
-
-        sound.playBottleSound(this.playerArray[idx]);
-
-        if (this.selectedIndices.includes(idx)) {
-          this.selectedIndices = this.selectedIndices.filter(i => i !== idx);
-        } else {
-          this.selectedIndices.push(idx);
-        }
-
-        if (this.selectedIndices.length === 2) {
-          const [i1, i2] = this.selectedIndices;
-          const temp = this.playerArray[i1];
-          this.playerArray[i1] = this.playerArray[i2];
-          this.playerArray[i2] = temp;
-
-          sound.playSwapSound();
-          this.selectedIndices = [];
-          this.renderLane('player');
-          this.updateProgress();
-
-          if (this.isSorted(this.playerArray)) {
-            this.handleEndGame('player');
-          }
-        } else {
-          this.renderLane('player');
-        }
-      }
-
-      updateProgress() {
-        const getSortedRatio = (arr) => {
-          let count = 0;
-          for (let i = 0; i < arr.length - 1; i++) {
-            if (arr[i] <= arr[i + 1]) count++;
-          }
-          return Math.round((count / (arr.length - 1)) * 100);
-        };
-
-        const pRatio = getSortedRatio(this.playerArray);
-        const aiRatio = getSortedRatio(this.aiArray);
-
-        document.getElementById('player-progress-bar').style.width = `${pRatio}%`;
-        document.getElementById('player-sorted-percent').textContent = `${pRatio}%`;
-
-        document.getElementById('ai-progress-bar').style.width = `${aiRatio}%`;
-        document.getElementById('ai-sorted-percent').textContent = `${aiRatio}%`;
-      }
-
-      isSorted(arr) {
-        for (let i = 0; i < arr.length - 1; i++) {
-          if (arr[i] > arr[i + 1]) return false;
-        }
-        return true;
-      }
-
-      handleEndGame(winner) {
-        clearInterval(this.timerInterval);
-        clearTimeout(this.aiTimer);
-        this.isPlaying = false;
-
-        if (winner === 'player') {
-          sound.playSuccessSound();
-          alert(`คุณชนะ! จัดเรียงข้อมูลเสร็จก่อน AI ในเวลา ${document.getElementById('duel-timer').textContent}`);
-        } else {
-          sound.playErrorSound();
-          alert('AI เข้าเส้นชัยก่อน! ลองลดความเร็วของ AI หรือฝึกจัดเรียงใหม่อีกครั้ง');
-        }
-      }
-    }
-
-    /* ==========================================================================
-       SECTION 5: TAB 3 - STRATEGIST CONTROLLER (Pick Best Algorithm)
-       ========================================================================== */
-    class StrategistGame {
-      constructor() {
-        this.currentStage = 0;
-        this.score = 0;
-        this.selectedCard = null;
-
-        this.scenarios = [
-          {
-            title: 'สถานการณ์ที่ 1: ชุดข้อมูลเกือบเรียงสมบูรณ์ (Nearly Sorted)',
-            desc: 'ข้อมูล 8 ตัว โดย 6 ตัวเรียงถูกต้องอยู่แล้ว มีเพียง 2 ตัวที่ผิดตำแหน่ง ควรใช้อัลกอริทึมใดเพื่อให้ทำงานได้เร็วที่สุดใน O(n)?',
-            data: [12, 24, 35, 48, 62, 55, 78, 90],
-            bestAlgo: 'insertion',
-            explanation: 'ถูกต้อง: Insertion Sort มี Best Case เป็น O(n) สำหรับข้อมูลที่เกือบเรียงสมบูรณ์อยู่แล้ว เพราะจะเปรียบเทียบเพียง 1 ครั้งในแต่ละตำแหน่ง'
-          },
-          {
-            title: 'สถานการณ์ที่ 2: ต้องการลดจำนวนการเขียนหรือสลับข้อมูล (Minimum Swaps)',
-            desc: 'ชุดข้อมูลที่ต้นทุนการ Swap ข้อมูลสูงมาก ควรใช้อัลกอริทึมใดที่มีจำนวนครั้งการ Swap ต่ำสุดไม่เกิน O(n) เสมอ?',
-            data: [77, 23, 89, 12, 64, 45, 91, 33],
-            bestAlgo: 'selection',
-            explanation: 'ถูกต้อง: Selection Sort การันตีจำนวนการ Swap สูงสุดไม่เกิน n - 1 ครั้ง (O(n)) เสมอ เพราะจะค้นหาค่าน้อยสุดจนเจอแล้วจึงสลับเพียง 1 ครั้งต่อรอบ'
-          },
-          {
-            title: 'สถานการณ์ที่ 3: ข้อมูลสุ่มทั่วไป ต้องการความเร็วเฉลี่ย O(n log n)',
-            desc: 'ข้อมูลจำนวนมากที่กระจายตัวแบบสุ่ม ต้องการจัดเรียงให้รวดเร็วที่สุดโดยใช้หลักการ Divide and Conquer',
-            data: [82, 14, 59, 27, 95, 38, 71, 46],
-            bestAlgo: 'quick',
-            explanation: 'ถูกต้อง: Quick Sort ทำงานได้รวดเร็วโดยเฉลี่ย O(n log n) สำหรับข้อมูลสุ่มทั่วไป โดยแบ่งข้อมูลออกเป็นสองฝั่งด้วย Pivot'
-          },
-          {
-            title: 'สถานการณ์ที่ 4: ชุดข้อมูลเรียงย้อนกลับจากมากไปน้อย (Reversed Array)',
-            desc: 'ข้อมูลเรียงกลับด้านทั้งหมด [95, 80, 68...] หากเปรียบเทียบระหว่าง Bubble, Selection และ Insertion',
-            data: [95, 80, 68, 52, 41, 33, 22, 11],
-            bestAlgo: 'insertion',
-            explanation: 'ถูกต้อง: เมื่อข้อมูลกลับด้าน ทั้ง Bubble, Selection และ Insertion ใช้ O(n²) แต่ Insertion Sort จัดการ cache ได้ดีกว่า หรือใช้ Quick/Merge Sort ในทางปฏิบัติ'
-          }
-        ];
-
-        this.bindEvents();
-        this.loadScenario();
-      }
-
-      bindEvents() {
-        document.getElementById('btn-execute-strategy').onclick = () => this.evaluate();
-        document.getElementById('btn-next-scenario').onclick = () => {
-          this.currentStage = (this.currentStage + 1) % this.scenarios.length;
-          this.loadScenario();
-        };
-      }
-
-      loadScenario() {
-        const sc = this.scenarios[this.currentStage];
-        this.selectedCard = null;
-
-        document.getElementById('scenario-title').textContent = sc.title;
-        document.getElementById('scenario-desc').textContent = sc.desc;
-        document.getElementById('strat-stage-num').textContent = `${this.currentStage + 1} / ${this.scenarios.length}`;
-        document.getElementById('btn-execute-strategy').disabled = true;
-        document.getElementById('btn-next-scenario').style.display = 'none';
-        document.getElementById('strategy-result-box').style.display = 'none';
-
-        const previewEl = document.getElementById('scenario-data-preview');
-        previewEl.innerHTML = '';
-        const maxVal = Math.max(...sc.data);
-        sc.data.forEach((val, idx) => {
-          const card = document.createElement('div');
-          card.className = 'potion-bottle';
-          card.style.width = '42px';
-          card.style.height = '130px';
-          const heightPercent = (val / maxVal) * 90;
-          card.innerHTML = `
-            <div class="potion-value" style="font-size: 0.78rem; top: -20px;">${val}</div>
-            <div class="flask-body" style="height: 85px;">
-              <div class="flask-liquid" style="height: ${heightPercent}%;"></div>
-            </div>
-            <div class="potion-index">[${idx}]</div>
-          `;
-          previewEl.appendChild(card);
-        });
-
-        const container = document.getElementById('strategy-cards-container');
-        container.innerHTML = '';
-
-        const cards = [
-          { id: 'bubble', name: 'Bubble Sort', badge: 'O(n²)', tags: ['Best: O(n)', 'Worst: O(n²)', 'Swaps สูง'] },
-          { id: 'selection', name: 'Selection Sort', badge: 'สลับน้อยสุด O(n)', tags: ['Best: O(n²)', 'Worst: O(n²)', 'Swaps ต่ำสุด'] },
-          { id: 'insertion', name: 'Insertion Sort', badge: 'เหมาะกับเกือบเรียง', tags: ['Best: O(n)', 'Worst: O(n²)', 'Adaptive'] },
-          { id: 'quick', name: 'Quick Sort', badge: 'เร็วเฉลี่ย O(n log n)', tags: ['Average: O(n log n)', 'Divide & Conquer'] }
-        ];
-
-        cards.forEach(card => {
-          const cardEl = document.createElement('div');
-          cardEl.className = 'strategy-card';
-          cardEl.dataset.id = card.id;
-
-          cardEl.innerHTML = `
-            <div>
-              <div class="algo-badge">${card.badge}</div>
-              <h3 style="color: var(--text); font-size: 0.95rem; margin-bottom: 4px;">${card.name}</h3>
-              <div class="complexity-tags">
-                ${card.tags.map(t => `<span class="complexity-tag">${t}</span>`).join('')}
-              </div>
-            </div>
-            <div style="margin-top: 10px; font-size: 0.75rem; color: var(--text-dim);">คลิกเพื่อเลือก</div>
-          `;
-
-          cardEl.onclick = () => {
-            document.querySelectorAll('.strategy-card').forEach(c => c.classList.remove('selected'));
-            cardEl.classList.add('selected');
-            this.selectedCard = card.id;
-            document.getElementById('btn-execute-strategy').disabled = false;
-            sound.playTone(360, 'sine', 0.08);
-          };
-
-          container.appendChild(cardEl);
-        });
-      }
-
-      evaluate() {
-        if (!this.selectedCard) return;
-
-        const sc = this.scenarios[this.currentStage];
-        const isCorrect = this.selectedCard === sc.bestAlgo;
-        const resultBox = document.getElementById('strategy-result-box');
-        resultBox.style.display = 'block';
-
-        if (isCorrect) {
-          this.score += 25;
-          document.getElementById('strat-score').textContent = this.score;
-          sound.playSuccessSound();
-          resultBox.style.background = 'var(--emerald-subtle)';
-          resultBox.style.border = '1px solid var(--emerald)';
-          resultBox.style.color = 'var(--text)';
-          resultBox.innerHTML = `
-            <div style="color: var(--emerald); font-weight: 600; margin-bottom: 4px;">คำตอบถูกต้อง</div>
-            <p>${sc.explanation}</p>
-          `;
-        } else {
-          sound.playErrorSound();
-          resultBox.style.background = 'var(--rose-subtle)';
-          resultBox.style.border = '1px solid var(--rose)';
-          resultBox.style.color = 'var(--text)';
-          resultBox.innerHTML = `
-            <div style="color: var(--rose); font-weight: 600; margin-bottom: 4px;">ยังไม่ใช่ตัวเลือกที่ดีที่สุด</div>
-            <p>สำหรับสถานการณ์นี้ ตัวเลือกที่เหมาะสมที่สุดคือ <b>${sc.bestAlgo.toUpperCase()} SORT</b></p>
-          `;
-        }
-
-        document.getElementById('btn-execute-strategy').disabled = true;
-        document.getElementById('btn-next-scenario').style.display = 'inline-flex';
-      }
-    }
-
-    /* ==========================================================================
-       SECTION 6: TAB 4 - SANDBOX LAB CONTROLLER (Step-by-Step Simulator)
-       ========================================================================== */
-    class SandboxLab {
-      constructor() {
-        this.array = [];
-        this.generator = null;
-        this.isPlaying = false;
-        this.timer = null;
-        this.comps = 0;
-        this.swaps = 0;
-
-        this.bindEvents();
-        this.reset();
-      }
-
-      bindEvents() {
-        document.getElementById('sb-algo').onchange = () => this.reset();
-        document.getElementById('sb-size').onchange = () => this.reset();
-        document.getElementById('sb-type').onchange = () => this.reset();
-        document.getElementById('btn-sb-play').onclick = () => this.togglePlay();
-        document.getElementById('btn-sb-step').onclick = () => this.step();
-        document.getElementById('btn-sb-shuffle').onclick = () => this.reset();
-        document.getElementById('btn-sb-reset').onclick = () => this.reset();
-      }
-
-      reset() {
-        this.stopPlay();
-        const size = parseInt(document.getElementById('sb-size').value, 10);
-        const type = document.getElementById('sb-type').value;
-
-        if (type === 'random') {
-          this.array = generateRandomArray(size);
-        } else if (type === 'nearly') {
-          this.array = Array.from({ length: size }, (_, i) => (i + 1) * 8);
-          const t = this.array[1];
-          this.array[1] = this.array[2];
-          this.array[2] = t;
-        } else if (type === 'reversed') {
-          this.array = Array.from({ length: size }, (_, i) => (size - i) * 8);
-        }
-
-        this.comps = 0;
-        this.swaps = 0;
-        this.updateStats();
-
-        const algo = document.getElementById('sb-algo').value;
-        if (algo === 'bubble') this.generator = bubbleSortGenerator(this.array);
-        else if (algo === 'selection') this.generator = selectionSortGenerator(this.array);
-        else if (algo === 'insertion') this.generator = insertionSortGenerator(this.array);
-        else this.generator = quickSortGenerator(this.array);
-
-        document.getElementById('sb-status-text').textContent = 'พร้อม';
-        document.getElementById('sb-code-explanation').textContent = 'กด "ก้าวถัดไป (Step)" หรือ "เล่นอัตโนมัติ" เพื่อเริ่มจำลอง';
-        this.render();
-      }
-
-      updateStats() {
-        document.getElementById('sb-comp-count').textContent = this.comps;
-        document.getElementById('sb-swap-count').textContent = this.swaps;
-      }
-
-      render(stepInfo = null) {
-        const stage = document.getElementById('sandbox-stage');
-        stage.innerHTML = '';
-        const maxVal = Math.max(...this.array, 100);
-
-        this.array.forEach((val, idx) => {
-          const card = document.createElement('div');
-          card.className = 'potion-bottle';
-          card.style.width = '44px';
-          card.style.height = '145px';
-
-          const heightPercent = Math.max(20, (val / maxVal) * 95);
-          card.innerHTML = `
-            <div class="potion-value" style="font-size: 0.8rem; top: -20px;">${val}</div>
-            <div class="flask-body" style="height: 100px;">
-              <div class="flask-liquid" style="height: ${heightPercent}%;"></div>
-            </div>
-            <div class="potion-index">[${idx}]</div>
-          `;
-
-          if (stepInfo) {
-            if (stepInfo.indices && stepInfo.indices.includes(idx)) {
-              card.classList.add('comparing');
-            }
-            if (stepInfo.type === 'lock_sorted' && stepInfo.index === idx) {
-              card.classList.add('sorted');
-            }
-          }
-
-          stage.appendChild(card);
-        });
-      }
-
-      step() {
-        if (!this.generator) return false;
-        const res = this.generator.next();
-
-        if (!res.done) {
-          const info = res.value;
-          if (info.values) this.array = info.values;
-          if (info.type === 'compare') this.comps++;
-          if (info.type === 'swap') {
-            this.swaps++;
-            sound.playSwapSound();
-          } else {
-            sound.playTone(320, 'sine', 0.04);
-          }
-
-          this.updateStats();
-          this.render(info);
-          document.getElementById('sb-code-explanation').textContent = info.description || '';
-          return true;
-        } else {
-          document.getElementById('sb-status-text').textContent = 'เสร็จสิ้น';
-          sound.playSuccessSound();
-          this.stopPlay();
-          return false;
-        }
-      }
-
-      togglePlay() {
-        if (this.isPlaying) {
-          this.stopPlay();
-        } else {
-          this.isPlaying = true;
-          document.getElementById('btn-sb-play').textContent = 'หยุดชั่วคราว (Pause)';
-          document.getElementById('sb-status-text').textContent = 'กำลังทำงาน...';
-          const speed = parseInt(document.getElementById('sb-speed').value, 10);
-
-          const run = () => {
-            if (this.isPlaying) {
-              const hasMore = this.step();
-              if (hasMore) {
-                this.timer = setTimeout(run, speed);
-              }
-            }
-          };
-          run();
-        }
-      }
-
-      stopPlay() {
-        this.isPlaying = false;
-        clearTimeout(this.timer);
-        document.getElementById('btn-sb-play').textContent = 'เล่นอัตโนมัติ (Play)';
-      }
-    }
-
-    /* ==========================================================================
-       SECTION 7: GLOBAL INITIALIZATION & TAB SWITCHER
+       SECTION 4: INITIALIZATION
        ========================================================================== */
     document.addEventListener('DOMContentLoaded', () => {
-      const trialsGame = new TrialsGame();
-      const duelGame = new DuelGame();
-      const strategistGame = new StrategistGame();
-      const sandboxLab = new SandboxLab();
-
-      trialsGame.initLevel();
-
-      document.querySelectorAll('.mode-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-          document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-
-          e.currentTarget.classList.add('active');
-          const targetTab = document.getElementById(`tab-${e.currentTarget.dataset.tab}`);
-          if (targetTab) targetTab.classList.add('active');
-
-          if (e.currentTarget.dataset.tab === 'duel') {
-            duelGame.resetDuel();
-          }
-        });
-      });
+      const game = new TrialsGame();
+      game.initLevel();
 
       document.getElementById('btn-sound').onclick = () => {
         const isEnabled = sound.toggle();
